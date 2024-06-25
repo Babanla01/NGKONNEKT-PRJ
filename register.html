@@ -1,0 +1,78 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NG REGISTER</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="background">
+    <div class="register__container">
+      <form action="" class="input__form" id="input-form">
+        <div class="register__box">
+          <img src="Images/footer-img.png" alt="" class="register__img" />
+          <h3 class="title">Sign Up</h3>
+        </div>
+        <div class="input__container">
+          <label for="fullname" class="input__label"> FullName*</label>
+          <input type="text" class="inputs" id="fullname" />
+          <small id="fullname-error" class="error"></small>
+        </div>
+        <div class="input__container">
+          <label for="fullname" class="input__label"> UserName*</label>
+          <input type="text" class="inputs" id="username" />
+          <small id="username-error" class="error"></small>
+        </div>
+        <div class="input__container">
+          <label for="fullname" class="input__label"> Email*</label>
+          <input type="email" class="inputs" id="email" />
+          <small id="email-error" class="error"></small>
+        </div>
+        <div class="input__container">
+          <label for="fullname" class="input__label"> Phone*</label>
+          <input type="tel" class="inputs" id="phone" />
+          <small id="phone-error" class="error"></small>
+          <small class="input__text"
+            >(e.g 0814253701) No need of +234814253701</small
+          >
+        </div>
+        <div class="input__container">
+          <label for="fullname" class="input__label"> Address*</label>
+          <input type="text" class="inputs" id="address" />
+          <small id="address-error" class="error"></small>
+        </div>
+        <div class="input__container">
+          <label for="fullname" class="input__label">
+            Reffaral username [optional]*</label
+          >
+          <input type="text" class="inputs" id="refaral" />
+          <small id="refaral-error" class="error"></small>
+          <small class="input__text">Leave blank if no referral</small>
+        </div>
+        <div class="input__container">
+          <label for="fullname" class="input__label"> Password*</label>
+          <input type="password" class="inputs" id="password" />
+          <small id="password-error" class="error"></small>
+          <small class="input__text"
+            >min_lenght-8 mix characters [i.e musa1234]</small
+          >
+        </div>
+        <div class="input__container">
+          <label for="fullname" class="input__label"> Confirm Password*</label>
+          <input type="password" class="inputs" id="password-1" />
+          <small id="password1-error" class="error"></small>
+          <small class="input__text">Enter same password as before</small>
+        </div>
+        <div class="input__container checks">
+          <input type="checkbox" class="check" id="check" />
+          <a href="" class="input__link">I Agree the terms and conditions.</a>
+        </div>
+        <button class="button">Sign Up</button>
+      </form>
+      <div class="sign__in">
+        <small>Already a member?</small>
+        <a href="" class="input__link">Sign In</a>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
