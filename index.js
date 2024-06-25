@@ -1,76 +1,77 @@
-// let navBtn = document.querySelector("#nav-toggle");
-// let navClose = document.querySelector("#nav-close");
-// let navMenu = document.querySelector("#nav__menu");
-// if (navBtn) {
-//   navBtn.addEventListener("click", () => {
-//     navMenu.classList.add("nav__show");
-//   });
-// }
-// if (navClose) {
-//   navClose.addEventListener("click", () => {
-//     navMenu.classList.remove("nav__show");
-//   });
-// }
+let navBtn = document.querySelector("#nav-toggle");
+let navClose = document.querySelector("#nav-close");
+let navMenu = document.querySelector("#nav__menu");
+if (navBtn) {
+  navBtn.addEventListener("click", () => {
+    navMenu.classList.add("nav__show");
+  });
+}
+if (navClose) {
+  navClose.addEventListener("click", () => {
+    navMenu.classList.remove("nav__show");
+  });
+}
 
-// let header = document.querySelector("#header");
-// window.addEventListener("scroll", addScroll);
-// function addScroll() {
-//   if (window.scrollY >= 50) {
-//     header.classList.add("header__scroll");
-//   } else {
-//     header.classList.remove("header__scroll");
-//   }
-// }
+let header = document.querySelector("#header");
+window.addEventListener("scroll", addScroll);
+function addScroll() {
+  if (window.scrollY >= 50) {
+    header.classList.add("header__scroll");
+  } else {
+    header.classList.remove("header__scroll");
+  }
+}
 
-// ========================= ACCORDION ====================
-// let headers = document.querySelectorAll(".accordion-header");
-// // let accordion = document.querySelector(".accordion-item");
-// headers.forEach((header) => {
-//   header.addEventListener("click", function (e) {
-//     let content = this.nextElementSibling;
-//     content.classList.toggle("show");
-//     let accordion = this.parentElement;
-//     if (accordion) {
-//       accordion.classList.add("border");
-//     }
+// ================== ACCORDION ====================
 
-//     let contents = document.querySelectorAll(".accordion-content");
-//     contents.forEach((item) => {
-//       if (item !== content) {
-//         item.classList.remove("show");
-//       }
-//     });
-//   });
-// });
+let headers = document.querySelectorAll(".accordion-header");
+// let accordion = document.querySelector(".accordion-item");
+headers.forEach((header) => {
+  header.addEventListener("click", function (e) {
+    let content = this.nextElementSibling;
+    content.classList.toggle("show");
+    let accordion = this.parentElement;
+    if (accordion) {
+      accordion.classList.add("border");
+    }
+
+    let contents = document.querySelectorAll(".accordion-content");
+    contents.forEach((item) => {
+      if (item !== content) {
+        item.classList.remove("show");
+      }
+    });
+  });
+});
 
 // ====================  REGISTER   PAGE  ======================
 
-// let inputs = document.getElementsByTagName("input");
-// let form = document.querySelector("#input-form");
+let inputs = document.getElementsByTagName("input");
+let form = document.querySelector("#input-form");
 
-// form.addEventListener("submit", function (e) {
-//   // e.preventDefault();
-//   let isValid = true;
+form.addEventListener("submit", function (e) {
+  // e.preventDefault();
+  let isValid = true;
 
-//   let fullName = document.querySelector("#fullname");
-//   let userName = document.querySelector("#username");
-//   let email = document.querySelector("#email");
-//   let address = document.querySelector("#address");
-//   let refaral = document.querySelector("#refaral");
-//   let phone = document.querySelector("#phone");
-//   let password = document.querySelector("#password");
-//   let password1 = document.querySelector("#password-1");
-//   let checks = document.querySelector("#checks");
+  let fullName = document.querySelector("#fullname");
+  let userName = document.querySelector("#username");
+  let email = document.querySelector("#email");
+  let address = document.querySelector("#address");
+  let refaral = document.querySelector("#refaral");
+  let phone = document.querySelector("#phone");
+  let password = document.querySelector("#password");
+  let password1 = document.querySelector("#password-1");
+  let checks = document.querySelector("#checks");
 
-//   if (fullName.value.trim() === "") {
-//     isValid = false;
-//     fullName.classList.add("error");
-//   }
-//   if (!isValid) {
-//     e.preventDefault();
-//   }
-//   window.location.href = "index.html";
-// });
+  if (fullName.value.trim() === "") {
+    isValid = false;
+    fullName.classList.add("error");
+  }
+  if (!isValid) {
+    e.preventDefault();
+  }
+  window.location.href = "index.html";
+});
 
 const fullname = document.getElementById("fullname");
 const username = document.getElementById("username");
