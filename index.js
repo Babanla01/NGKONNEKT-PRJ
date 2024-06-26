@@ -49,29 +49,29 @@ headers.forEach((header) => {
 let inputs = document.getElementsByTagName("input");
 let form = document.querySelector("#input-form");
 
-form.addEventListener("submit", function (e) {
-  // e.preventDefault();
-  let isValid = true;
+// form.addEventListener("submit", function (e) {
+//   e.preventDefault();
+//   let isValid = true;
 
-  let fullName = document.querySelector("#fullname");
-  let userName = document.querySelector("#username");
-  let email = document.querySelector("#email");
-  let address = document.querySelector("#address");
-  let refaral = document.querySelector("#refaral");
-  let phone = document.querySelector("#phone");
-  let password = document.querySelector("#password");
-  let password1 = document.querySelector("#password-1");
-  let checks = document.querySelector("#checks");
+//   let fullName = document.querySelector("#fullname");
+//   let userName = document.querySelector("#username");
+//   let email = document.querySelector("#email");
+//   let address = document.querySelector("#address");
+//   let refaral = document.querySelector("#refaral");
+//   let phone = document.querySelector("#phone");
+//   let password = document.querySelector("#password");
+//   let password1 = document.querySelector("#password-1");
+//   let checks = document.querySelector("#checks");
 
-  if (fullName.value.trim() === "") {
-    isValid = false;
-    fullName.classList.add("error");
-  }
-  if (!isValid) {
-    e.preventDefault();
-  }
-  window.location.href = "index.html";
-});
+//   if (fullName.value.trim() === "") {
+//     isValid = false;
+//     fullName.classList.add("error");
+//   }
+//   if (!isValid) {
+//     e.preventDefault();
+//   }
+//   window.location.href = "index.html";
+// });
 
 const fullname = document.getElementById("fullname");
 const username = document.getElementById("username");
@@ -79,11 +79,15 @@ const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const address = document.getElementById("address");
 const password = document.getElementById("password");
-const confirmPassword = document.getElementById("confirm-password");
+const confirmPass = document.getElementById("password-1");
 const check = document.getElementById("check");
 document.getElementById("input-form").addEventListener("submit", function (e) {
   e.preventDefault();
+  console.log("here");
   validateInput();
+  if (validateInput()) {
+    window.location.href = "index.html";
+  }
 });
 
 function validateInput() {
@@ -93,7 +97,7 @@ function validateInput() {
   let phoneValue = phone.value.trim();
   let addressValue = address.value.trim();
   let passwordValue = password.value.trim();
-  let password1Value = confirmPassword.value.trim();
+  let password1Value = confirmPass.value;
   let checkValue = check.value.trim();
 
   if (fullNameValue === "") {
@@ -129,11 +133,11 @@ function validateInput() {
   }
 
   if (password1Value === "") {
-    setError(confirmPassword, "you must input a valid password");
+    setError(confirmPass, "you must input a valid password");
   } else if (password1Value !== passwordValue) {
-    setError(confirmPassword, "password does not match");
+    setError(confirmPass, "password does not match");
   } else {
-    setSucess(confirmPassword);
+    setSucess(confirmPass);
   }
   // if (!check.checked) {
   //   setError()
@@ -142,6 +146,7 @@ function validateInput() {
 
 function setError(input, message) {
   let formControl = input.parentElement;
+  console.log(formControl);
   let errorMessage = formControl.querySelector(".error");
   errorMessage.innerHTML = message;
 }
