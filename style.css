@@ -745,6 +745,9 @@ input {
     .container{
         margin: 0 var(--mb-0-75);
     }
+    .pricing__contents{
+        grid-template-columns: repeat(2,1fr);
+    }
  }
 @media (max-width:992px){
     .container{

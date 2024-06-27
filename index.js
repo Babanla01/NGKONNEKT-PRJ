@@ -88,6 +88,7 @@ document.getElementById("input-form").addEventListener("submit", function (e) {
 
 function validateInput() {
   let isValid = true;
+
   let fullNameValue = fullname.value.trim();
   let userNameValue = username.value.trim();
   let emailValue = email.value.trim();
@@ -159,25 +160,30 @@ function validateInput() {
     isValid = true;
   }
   if (isValid) {
-    let userData = {
-      userId: userNameValue,
-      userEmail: emailValue,
-      pass: passwordValue,
-    };
-    localStorage.setItem("users", userData);
-    console.log(userData);
+    saveUserData();
     window.location.href = "index.html";
   }
+}
+function saveUserData() {
+  let users;
+  users = JSON.parse(localStorage.getItem(users)) || [];
+  let userData = {
+    usersName: username.value.trim(),
+    userEmail: email.value.trim(),
+    pass: password.value.trim(),
+  };
+  users.push(userData);
+  localStorage.setItem("users", JSON.stringify(users));
+  console.log(users);
 }
 
 function setError(input, message) {
   let formControl = input.parentElement;
-  console.log(formControl);
   let errorMessage = formControl.querySelector(".error");
   errorMessage.innerHTML = message;
-  setTimeout(function () {
-    errorMessage.innerHTML = "";
-  }, 3000);
+  // setTimeout(function () {
+  //   errorMessage.innerHTML = "";
+  // }, 6000);
 }
 
 function setSucess(input) {
