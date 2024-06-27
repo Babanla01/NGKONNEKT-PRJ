@@ -83,14 +83,11 @@ const confirmPass = document.getElementById("password-1");
 const check = document.getElementById("check");
 document.getElementById("input-form").addEventListener("submit", function (e) {
   e.preventDefault();
-  console.log("here");
   validateInput();
-  if (validateInput()) {
-    window.location.href = "index.html";
-  }
 });
 
 function validateInput() {
+  let isValid = true;
   let fullNameValue = fullname.value.trim();
   let userNameValue = username.value.trim();
   let emailValue = email.value.trim();
@@ -102,46 +99,75 @@ function validateInput() {
 
   if (fullNameValue === "") {
     setError(fullname, "you must input your full name");
+    isValid = false;
   } else {
     setSucess(fullname);
+    isValid = true;
   }
 
   if (userNameValue === "") {
     setError(username, "you must input your username");
+    isValid = false;
   } else {
     setSucess(username);
+    isValid = true;
   }
 
   if (emailValue === "") {
     setError(email, "your email is required");
+    isValid = false;
   } else if (!isEmail(emailValue)) {
     setError(email, "email is not valid");
+    isValid = false;
   } else {
     setSucess(email);
+    isValid = true;
   }
 
   if (phoneValue === "") {
     setError(phone, "you must input a valid phone number");
+    isValid = false;
+  } else if (!isPhone(phoneValue)) {
+    setError(phone, "you must input a valid phone number");
+    isValid = false;
   } else {
     setSucess(phone);
+    isValid = true;
   }
 
   if (passwordValue === "") {
     setError(password, "you must input a valid password");
+    isValid = false;
   } else {
     setSucess(password);
+    isValid = true;
   }
 
   if (password1Value === "") {
     setError(confirmPass, "you must input a valid password");
+    isValid = false;
   } else if (password1Value !== passwordValue) {
     setError(confirmPass, "password does not match");
+    isValid = false;
   } else {
     setSucess(confirmPass);
+    isValid = true;
   }
-  // if (!check.checked) {
-  //   setError()
-  // }
+  if (!check.checked) {
+    isValid = false;
+  } else {
+    isValid = true;
+  }
+  if (isValid) {
+    let userData = {
+      userId: userNameValue,
+      userEmail: emailValue,
+      pass: passwordValue,
+    };
+    localStorage.setItem("users", userData);
+    console.log(userData);
+    window.location.href = "index.html";
+  }
 }
 
 function setError(input, message) {
@@ -160,6 +186,11 @@ function setSucess(input) {
 function isEmail(email) {
   return /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/.test(
     email
+  );
+}
+function isPhone(phone) {
+  return /^\+?(\d{1,3})?[-. (]?(\d{1,4})?[-. )]?(\d{1,4})[-. ]?(\d{1,4})[-. ]?(\d{1,9})$/.test(
+    phone
   );
 }
 // function checkInputs(params) {
