@@ -104,62 +104,60 @@ function validateInput() {
   } else {
     setSucess(fullname);
     isValid = true;
+    if (userNameValue === "") {
+      setError(username, "you must input your username");
+      isValid = false;
+    } else {
+      setSucess(username);
+      isValid = true;
+      if (emailValue === "") {
+        setError(email, "your email is required");
+        isValid = false;
+      } else if (!isEmail(emailValue)) {
+        setError(email, "email is not valid");
+        isValid = false;
+      } else {
+        setSucess(email);
+        isValid = true;
+        if (phoneValue === "") {
+          setError(phone, "you must input a valid phone number");
+          isValid = false;
+        } else if (!isPhone(phoneValue)) {
+          setError(phone, "you must input a valid phone number");
+          isValid = false;
+        } else {
+          setSucess(phone);
+          isValid = true;
+          if (passwordValue === "") {
+            setError(password, "you must input a valid password");
+            isValid = false;
+          } else {
+            setSucess(password);
+            isValid = true;
+            if (password1Value === "") {
+              setError(confirmPass, "you must input a valid password");
+              isValid = false;
+            } else if (password1Value !== passwordValue) {
+              setError(confirmPass, "password does not match");
+              isValid = false;
+            } else {
+              setSucess(confirmPass);
+              isValid = true;
+              if (!check.checked) {
+                isValid = false;
+              } else {
+                isValid = true;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
-  if (userNameValue === "") {
-    setError(username, "you must input your username");
-    isValid = false;
+  if (!isValid) {
+    e.preventDefault();
   } else {
-    setSucess(username);
-    isValid = true;
-  }
-
-  if (emailValue === "") {
-    setError(email, "your email is required");
-    isValid = false;
-  } else if (!isEmail(emailValue)) {
-    setError(email, "email is not valid");
-    isValid = false;
-  } else {
-    setSucess(email);
-    isValid = true;
-  }
-
-  if (phoneValue === "") {
-    setError(phone, "you must input a valid phone number");
-    isValid = false;
-  } else if (!isPhone(phoneValue)) {
-    setError(phone, "you must input a valid phone number");
-    isValid = false;
-  } else {
-    setSucess(phone);
-    isValid = true;
-  }
-
-  if (passwordValue === "") {
-    setError(password, "you must input a valid password");
-    isValid = false;
-  } else {
-    setSucess(password);
-    isValid = true;
-  }
-
-  if (password1Value === "") {
-    setError(confirmPass, "you must input a valid password");
-    isValid = false;
-  } else if (password1Value !== passwordValue) {
-    setError(confirmPass, "password does not match");
-    isValid = false;
-  } else {
-    setSucess(confirmPass);
-    isValid = true;
-  }
-  if (!check.checked) {
-    isValid = false;
-  } else {
-    isValid = true;
-  }
-  if (isValid) {
     saveUserData();
     window.location.href = "index.html";
   }
@@ -202,7 +200,23 @@ function isPhone(phone) {
     phone
   );
 }
+
+const logInUser = document.querySelector("#login-user");
+const logInPass = document.querySelector("#login-pass");
+const login = document.querySelector("login-form");
+login.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+function validateLogin() {
+  if (logInUser.value === "") {
+    setError(logInUser, "please enter your userna,e");
+  } else {
+    setSucess(logInUser);
+  }
+}
+
 // function checkInputs(params) {
+
 //   let isValid = true;
 //   // Full Name validation
 //   if (fullname.value.trim() === "") {
@@ -274,3 +288,5 @@ function isPhone(phone) {
 //     window.location.href = "index.html";
 //   }
 // }
+
+// ========================= LOGIN VALIDATION ===========================

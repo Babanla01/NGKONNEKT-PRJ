@@ -739,6 +739,25 @@ input {
     display: flex;
     justify-content: center;
 }
+.login__container{
+    margin: 5rem auto;
+}
+.login__box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:var(--mb-1);
+}
+.login__form{
+    display: grid;
+    row-gap: 1.5rem;
+}
+.login__btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 /* ====================== BREAK POINTS ==================== */
  @media (max-width:1200px){
@@ -913,6 +932,9 @@ input {
     max-width: 460px;
     margin: 0;
     padding: 3rem 1rem;
+}
+.login__container{
+    margin: 3rem auto;
 }
 .input__label{
     font-size: var(--h3-font-size);
