@@ -175,6 +175,9 @@ function setError(input, message) {
   console.log(formControl);
   let errorMessage = formControl.querySelector(".error");
   errorMessage.innerHTML = message;
+  setTimeout(function () {
+    errorMessage.innerHTML = "";
+  }, 3000);
 }
 
 function setSucess(input) {
